@@ -66,7 +66,7 @@
                         <input name="razao_social" type="text" class="form-control" id="razao_social" required>
                     </div>
 
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-2 mb-3">
                         <label for="tipo_inscricao" class="form-label">Tipo de Inscrição</label>
                         <select name="tipo_inscricao" class="form-select" id="tipo_inscricao" required>
                             <option value="">Selecione...</option>
@@ -86,7 +86,7 @@
                         <input name="endereco" type="text" class="form-control" id="endereco" required>
                     </div>
 
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-2 mb-3">
                         <label for="bairro" class="form-label">Bairro</label>
                         <input name="bairro" type="text" class="form-control" id="bairro" required>
                     </div>
@@ -126,12 +126,12 @@
                         <input name="nome_contato" type="text" class="form-control" id="nome_contato">
                     </div>
 
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input name="email" type="email" class="form-control" id="email">
                     </div>
 
-                    <div class="col-md-1 mb-3">
+                    <div class="col-md-2 mb-3">
                         <label for="status" class="form-label">Status</label>
                         <select name="status" class="form-select" id="status" required>
                             <option value="">Selecione...</option>
@@ -155,7 +155,7 @@
                         <input name="orgao_emissor" type="text" class="form-control" id="orgao_emissor">
                     </div>
 
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <label for="uf_emissor" class="form-label text-nowrap">UF Emissor</label>
                         <select name="uf_emissor" class="form-select" id="uf_emissor">
                             <option value="">Selecione...</option>
@@ -199,7 +199,7 @@
                         <input name="cargo" type="text" class="form-control" id="cargo">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary w-50">Enviar</button>
+                <button type="submit" class="btn btn-success w-50">Salvar</button>
             </form>
         </div>
     </div>
