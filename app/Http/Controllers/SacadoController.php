@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Sacado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SacadoController extends Controller
 {
     public function list(){
 
-        $sacados = Sacado::paginate(10);
+        $sacados = Sacado::orderBy('id', 'desc')->paginate(5);
 
         return view('sacados.list', compact('sacados'));
     }
@@ -17,11 +18,16 @@ class SacadoController extends Controller
     public function search(Request $request){
         
         $request->flash();
+        $cnpj = $request->cnpj;
+        $cnpj = str_replace(['.', '/', '-'], '', $cnpj);
 
-        if ($request->razao !== null) {
-            $sacados = Sacado::where('razao_social', 'LIKE', '%' . $request->razao . '%')->paginate(10);
+        if ($request->razao !== null || $cnpj !== null) {
+            $sacados = Sacado::orderBy('id', 'desc')
+                    ->where('razao_social', 'LIKE', '%' . $request->razao . '%')
+                    ->where('cnpj', 'LIKE', '%' . $cnpj . '%')
+                    ->paginate(5);
         } else {    
-            $sacados = Sacado::paginate(10);
+            $sacados = Sacado::orderBy('id', 'desc')->paginate(5);
 
             return view('sacados.list', compact('sacados'));
         }
@@ -30,11 +36,16 @@ class SacadoController extends Controller
     }
 
     public function details(Sacado $sacado){
-        
+        if (Auth::user()->isAdmin !== true) {
+            return view('isAdmin.isadmin');
+        }
         return view('sacados.details', compact('sacado'));
     }
 
     public function create(){
+        if (Auth::user()->isAdmin !== true) {
+            return view('isAdmin.isadmin');
+        }
         return view('sacados.create');
     }
 
@@ -44,25 +55,25 @@ class SacadoController extends Controller
             'codigo_sacado' => 'required',
             'cnpj' => 'required',
             'razao_social' => 'required',
-            'tipo_inscricao' => 'required',
-            'cep' => 'required',
-            'endereco' => 'required',
-            'bairro' => 'required',
-            'cidade' => 'required',
-            'uf' => 'required',
-            'numero' => 'required',
+            'tipo_inscricao' => 'nullable',
+            'cep' => 'nullable',
+            'endereco' => 'nullable',
+            'bairro' => 'nullable',
+            'cidade' => 'nullable',
+            'uf' => 'nullable',
+            'numero' => 'nullable',
             'complemento' => 'nullable',
-            'ddd_telefone' => 'required',
+            'ddd_telefone' => 'nullable',
             'ramal' => 'nullable',
-            'nome_contato' => 'required',
-            'email' => 'required|email',
-            'status' => 'required',
-            'comprador_autorizado' => 'required',
-            'rg' => 'required',
-            'orgao_emissor' => 'required',
-            'uf_emissor' => 'required',
-            'cpf' => 'required',
-            'cargo' => 'required',
+            'nome_contato' => 'nullable',
+            'email' => 'nullable',
+            'status' => 'nullable',
+            'comprador_autorizado' => 'nullable',
+            'rg' => 'nullable',
+            'orgao_emissor' => 'nullable',
+            'uf_emissor' => 'nullable',
+            'cpf' => 'nullable',
+            'cargo' => 'nullable',
         ]);
 
         Sacado::create($data);
@@ -76,27 +87,27 @@ class SacadoController extends Controller
             'codigo_sacado' => 'required',
             'cnpj' => 'required',
             'razao_social' => 'required',
-            'tipo_inscricao' => 'required',
-            'cep' => 'required',
-            'endereco' => 'required',
-            'bairro' => 'required',
-            'cidade' => 'required',
-            'uf' => 'required',
-            'numero' => 'required',
+            'tipo_inscricao' => 'nullable',
+            'cep' => 'nullable',
+            'endereco' => 'nullable',
+            'bairro' => 'nullable',
+            'cidade' => 'nullable',
+            'uf' => 'nullable',
+            'numero' => 'nullable',
             'complemento' => 'nullable',
-            'ddd_telefone' => 'required',
+            'ddd_telefone' => 'nullable',
             'ramal' => 'nullable',
-            'nome_contato' => 'required',
-            'email' => 'required|email',
-            'status' => 'required',
-            'comprador_autorizado' => 'required',
-            'rg' => 'required',
-            'orgao_emissor' => 'required',
-            'uf_emissor' => 'required',
-            'cpf' => 'required',
-            'cargo' => 'required',
+            'nome_contato' => 'nullable',
+            'email' => 'nullable',
+            'status' => 'nullable',
+            'comprador_autorizado' => 'nullable',
+            'rg' => 'nullable',
+            'orgao_emissor' => 'nullable',
+            'uf_emissor' => 'nullable',
+            'cpf' => 'nullable',
+            'cargo' => 'nullable',
         ]);
-        $sacado = Sacado::find($request->codigo_sacado);
+        $sacado = Sacado::find($request->id_sacado);
         $sacado->update($data);
         $sacado->save();
 

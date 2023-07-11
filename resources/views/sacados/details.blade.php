@@ -54,6 +54,7 @@
                     <div class="col-md-2 mb-3">
                         <label for="codigo_sacado" class="form-label">Código do Sacado</label>
                         <input name="codigo_sacado" type="text" class="form-control" id="codigo_sacado" value="{{$sacado->codigo_sacado}}" required autofocus>
+                        <input type="hidden" name="id_sacado" value="{{$sacado->id}}">
                     </div>
 
                     <div class="col-md-4 mb-3">
@@ -128,7 +129,7 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input name="email" type="email" class="form-control" id="email" value="{{$sacado->email}}">
+                        <input name="email" type="text" class="form-control" id="email" value="{{$sacado->email}}" >
                     </div>
 
                     <div class="col-md-2 mb-3">

@@ -5,13 +5,15 @@
         </a>
         @auth
         <div class="d-flex gap-2">
+            @if(Auth::user()->isAdmin === true)
             <a class="btn btn-outline-success" href="{{ route('sacado.create') }}">
                 Cadastrar
             </a>
+            @endif
             <a class="btn btn-outline-primary" href="{{ route('sacado.list') }}">
                 Listar cadastros
             </a>
-        </div>
+        </div>    
         @endauth
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
