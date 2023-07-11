@@ -9,7 +9,7 @@
       <h5>Somente <strong>administradores</strong> tem acesso a esta função</h5>
     </div>
       <div class="d-flex justify-content-center">
-        <img src="../svg/undraw_safe_re_kiil.svg" alt="blocked">
+        <img src="{{ asset('svg/undraw_safe_re_kiil.svg') }}" alt="blocked">
       </div>
   </div>
 @endsection

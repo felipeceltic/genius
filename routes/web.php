@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SacadoController;
 
 /*
@@ -24,7 +25,10 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('sacados.create');
+        if (Auth::user()->isAdmin !== true) {
+            return view('isAdmin.isadmin');
+        }
+        return view('sacados.details', compact('sacado'));
     })->name('dashboard');
 });
 

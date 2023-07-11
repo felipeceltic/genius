@@ -38,9 +38,6 @@
                                 <th scope="col">Comprador</th>
                                 <th scope="col">RG</th>
                                 <th scope="col">CPF</th>
-                                @if (Auth::user()->isAdmin === true)
-                                    <th scope="col">Ver mais</th>
-                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -49,7 +46,11 @@
                                     <th scope="row">{{ $s->codigo_sacado }}</th>
                                     <td>{{ sprintf('%s.%s.%s/%s-%s', substr(str_pad($s->cnpj, 14, '0', STR_PAD_LEFT), 0, 2), substr(str_pad($s->cnpj, 14, '0', STR_PAD_LEFT), 2, 3), substr(str_pad($s->cnpj, 14, '0', STR_PAD_LEFT), 5, 3), substr(str_pad($s->cnpj, 14, '0', STR_PAD_LEFT), 8, 4), substr(str_pad($s->cnpj, 14, '0', STR_PAD_LEFT), 12, 2)) }}
                                     </td>
+                                    @if (Auth::user()->isAdmin === true)
+                                    <td><a href="{{ route('sacado.details', $s->id) }}">{{ $s->razao_social }}</a></td>
+                                    @else
                                     <td>{{ $s->razao_social }}</td>
+                                    @endif
                                     <td>
                                         @if ($s->status == 2)
                                             Inativo
@@ -60,9 +61,6 @@
                                     <td>{{ $s->comprador_autorizado }}</td>
                                     <td>{{ $s->rg }}</td>
                                     <td>{{ $s->cpf }}</td>
-                                    @if (Auth::user()->isAdmin === true)
-                                        <td><a href="{{ route('sacado.details', $s->id) }}">mais</a></td>
-                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>
