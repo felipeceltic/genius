@@ -3,6 +3,7 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             Genius 🐱‍💻
         </a>
+        @auth
         <div class="d-flex gap-2">
             <a class="btn btn-outline-success" href="{{ route('sacado.create') }}">
                 Cadastrar
@@ -11,6 +12,7 @@
                 Listar cadastros
             </a>
         </div>
+        @endauth
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>

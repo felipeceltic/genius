@@ -24,7 +24,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('sacados.create');
     })->name('dashboard');
 });
 
@@ -34,4 +34,5 @@ Route::get('/sacado/criar')->name('sacado.create')->uses([App\Http\Controllers\S
 Route::post('/sacado/salvar')->name('sacado.store')->uses([App\Http\Controllers\SacadoController::class, 'store'])->middleware('auth');
 Route::post('/sacado/atualizar')->name('sacado.update')->uses([App\Http\Controllers\SacadoController::class, 'update'])->middleware('auth');
 Route::get('/sacado/listar')->name('sacado.list')->uses([App\Http\Controllers\SacadoController::class, 'list'])->middleware('auth');
+Route::get('/sacado/buscar')->name('sacado.search')->uses([App\Http\Controllers\SacadoController::class, 'search'])->middleware('auth');
 Route::get('/sacado/detalhes/{sacado}')->name('sacado.details')->uses([App\Http\Controllers\SacadoController::class, 'details'])->middleware('auth');

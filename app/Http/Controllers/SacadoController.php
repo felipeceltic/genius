@@ -14,6 +14,21 @@ class SacadoController extends Controller
         return view('sacados.list', compact('sacados'));
     }
 
+    public function search(Request $request){
+        
+        $request->flash();
+
+        if ($request->razao !== null) {
+            $sacados = Sacado::where('razao_social', 'LIKE', '%' . $request->razao . '%')->paginate(10);
+        } else {    
+            $sacados = Sacado::paginate(10);
+
+            return view('sacados.list', compact('sacados'));
+        }
+        
+        return view('sacados.list', compact('sacados'));
+    }
+
     public function details(Sacado $sacado){
         
         return view('sacados.details', compact('sacado'));

@@ -5,6 +5,23 @@
 
 @section('content')
     <div class="d-flex justify-content-center">
+        <form action="{{ route('sacado.search') }}" method="GET">
+            @csrf
+            <div class="d-flex justify-content-center gap-3">
+            <div class="input-group mb-3 w-75">
+                <input name="razao" type="text" class="form-control" placeholder="Buscar razão" aria-label="Buscar razão"
+                    aria-describedby="button-razao" value="{{ old('razao') }}">
+                <button class="btn btn-outline-secondary" type="submit" id="button-razao">Buscar</button>
+            </div>
+            <div class="input-group mb-3 w-75">
+                <input name="cnpj" type="text" class="form-control" placeholder="Buscar cnpj" aria-label="Buscar cnpj"
+                    aria-describedby="button-cnpj" value="{{ old('cnpj') }}">
+                <button class="btn btn-outline-secondary" type="submit" id="button-cnpj">Buscar</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="d-flex justify-content-center">
         <div class="card w-75">
             <div class="card-body">
                 <table class="table table-hover text-center">
