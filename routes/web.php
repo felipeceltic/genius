@@ -37,3 +37,6 @@ Route::post('/sacado/atualizar')->name('sacado.update')->uses([App\Http\Controll
 Route::get('/sacado/listar')->name('sacado.list')->uses([App\Http\Controllers\SacadoController::class, 'list'])->middleware('auth');
 Route::get('/sacado/buscar')->name('sacado.search')->uses([App\Http\Controllers\SacadoController::class, 'search'])->middleware('auth');
 Route::get('/sacado/detalhes/{sacado}')->name('sacado.details')->uses([App\Http\Controllers\SacadoController::class, 'details'])->middleware('auth');
+
+Route::get('/usuario')->name('user.create')->uses([App\Http\Controllers\UserController::class, 'create'])->middleware('auth');
+Route::post('/usuario/salvar')->name('user.store')->uses([App\Http\Controllers\UserController::class, 'store'])->middleware('auth');

@@ -3,10 +3,10 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{asset('svg/1B-withoutbg.svg')}}" alt="logo" width="32px" height="32px">
         </a>
+        @auth
         <a class="navbar-brand" href="{{ url('/') }}">
             <span class="fw-bolder ms-2">Inicio</span>
         </a>
-        @auth
         <span class="vr me-3"></span>
         <div class="d-flex">
             <a class="fw-bolder navbar-brand" href="{{ route('sacado.list') }}">
@@ -16,6 +16,10 @@
             <span class="vr me-3"></span>
             <a class="fw-bolder text-success navbar-brand" href="{{ route('sacado.create') }}">
                 Cadastrar
+            </a>
+            <span class="vr me-3"></span>
+            <a class="fw-bolder navbar-brand" href="{{ route('user.create') }}">
+                Novo usuário
             </a>
             @endif
         </div>    
@@ -36,17 +40,17 @@
                 <!-- Authentication Links -->
                 @guest
                     <div class="d-flex gap-2">
-                        @if (Route::has('login'))
+                        {{-- @if (Route::has('login'))
                             <li class="nav-item">
                                 <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
-                        @endif
+                        @endif --}}
 
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class=" btn btn-primary" href="{{ route('register') }}">{{ __('Cadastrar') }}</a>
                             </li>
-                        @endif
+                        @endif --}}
                     </div>
                 @else
                     <div>
