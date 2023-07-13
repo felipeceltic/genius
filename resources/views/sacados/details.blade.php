@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{$sacado->razao_social}}
+    {{$sacado->razao_social}} - Genius
 @endsection
 @section('head.scripts')
     <!-- jQuery -->

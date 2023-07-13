@@ -24,11 +24,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        if (Auth::user()->isAdmin !== true) {
-            return view('isAdmin.isadmin');
-        }
-        return view('sacados.details', compact('sacado'));
+    Route::get('/', function () {
+        return view('welcome');
     })->name('dashboard');
 });
 

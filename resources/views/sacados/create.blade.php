@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Dashboard
+    Cadastro - Genius
 @endsection
 @section('head.scripts')
     <!-- jQuery -->

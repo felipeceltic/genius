@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Lista de cadastros
+    Lista - Genius
 @endsection
 
 @section('content')

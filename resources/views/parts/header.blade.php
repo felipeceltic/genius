@@ -1,18 +1,23 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            Genius 🐱‍💻
+            <img src="{{asset('svg/1B-withoutbg.svg')}}" alt="logo" width="32px" height="32px">
+        </a>
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <span class="fw-bolder ms-2">Inicio</span>
         </a>
         @auth
-        <div class="d-flex gap-2">
+        <span class="vr me-3"></span>
+        <div class="d-flex">
+            <a class="fw-bolder navbar-brand" href="{{ route('sacado.list') }}">
+                Listar
+            </a>
             @if(Auth::user()->isAdmin === true)
-            <a class="btn btn-outline-success" href="{{ route('sacado.create') }}">
+            <span class="vr me-3"></span>
+            <a class="fw-bolder text-success navbar-brand" href="{{ route('sacado.create') }}">
                 Cadastrar
             </a>
             @endif
-            <a class="btn btn-outline-primary" href="{{ route('sacado.list') }}">
-                Listar cadastros
-            </a>
         </div>    
         @endauth
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
