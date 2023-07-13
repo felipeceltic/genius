@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Resetar senha - Genius
+@endsection
 
 @section('content')
     <div class="container">

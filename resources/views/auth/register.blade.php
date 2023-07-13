@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Cadastrar-se - Genius
+@endsection
 
 @section('content')
 <div class="container">

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Login - Genius
+@endsection
 
 @section('content')
 <div class="container">
