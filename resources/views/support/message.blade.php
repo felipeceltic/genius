@@ -1,26 +1,20 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Email') }}</div>
-
-                <div class="card-body">
-                    <h5 class="card-title">Assunto: {{ $data['subject'] }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">De: {{ $data['name'] }}</h6>
-
-                    <p class="card-text">{{ $data['message'] }}</p>
-
-                    @if ($attachmentPath)
-                        <p class="card-text">
-                            <strong>Anexo:</strong> <a href="{{ asset('storage/' . $attachmentPath) }}" target="_blank" rel="noopener noreferrer">Download</a>
-                        </p>
-                    @endif
-                </div>
+<body class="bg-light">
+    <div class="container">
+        <img class="ax-center my-10 w-24" src="https://assets.bootstrapemail.com/logos/light/square.png" />
+        <div class="card p-6 p-lg-10 space-y-4">
+            <h1 class="h3 fw-700">
+                {{ $data['subject'] }} de {{ $data['name'] }}
+            </h1>
+            <p>
+                {{ $data['message'] }}
+            </p>
+            <div class="d-flex gap-3">
+                <a class="btn btn-primary p-3 fw-700" href="mailto:{{ $data['email'] }}">Responder</a>
+                @if ($attachmentPath)
+                    <a class="btn btn-primary p-3 fw-700" href="{{ asset('storage/' . $attachmentPath) }}"
+                        target="_blank" rel="noopener noreferrer">Download</a>
+                @endif
             </div>
         </div>
     </div>
-</div>
-@endsection
+</body>
