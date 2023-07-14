@@ -40,3 +40,6 @@ Route::get('/sacado/detalhes/{sacado}')->name('sacado.details')->uses([App\Http\
 
 Route::get('/usuario')->name('user.create')->uses([App\Http\Controllers\UserController::class, 'create'])->middleware('auth');
 Route::post('/usuario/salvar')->name('user.store')->uses([App\Http\Controllers\UserController::class, 'store'])->middleware('auth');
+
+Route::get('/suporte')->name('support.create')->uses([App\Http\Controllers\SupportController::class, 'create'])->middleware('auth');
+Route::post('/suporte/enviar')->name('support.send')->uses([App\Http\Controllers\SupportController::class, 'sendEmail'])->middleware('auth');
