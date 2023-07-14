@@ -57,6 +57,9 @@
                         <button class="btn btn-secondary" type="button" disabled>
                             {{ Auth::user()->name }}
                         </button>
+                        <a class="btn btn-outline-warning" href="{{ route('support.create') }}">
+                            Suporte
+                        </a>
                         <a class="btn btn-outline-danger" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
