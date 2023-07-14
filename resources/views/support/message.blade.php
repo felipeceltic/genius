@@ -1,10 +1,13 @@
 <body class="bg-light">
     <div class="container">
-        <img class="ax-center my-10 w-24" src="https://assets.bootstrapemail.com/logos/light/square.png" />
         <div class="card p-6 p-lg-10 space-y-4">
+          <img class="my-6 w-16" src="{{asset('svg/1B-withoutbg.svg')}}" />
             <h1 class="h3 fw-700">
-                {{ $data['subject'] }} de {{ $data['name'] }}
+                {{ $data['subject'] }}
             </h1>
+            <h4>
+              Email enviado por {{ $data['name'] }}
+            </h4>
             <p>
                 {{ $data['message'] }}
             </p>

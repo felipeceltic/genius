@@ -40,6 +40,6 @@ class SupportController extends Controller
         }
 
         // Redirect the user back with a success message
-        return redirect()->back()->with('success', 'Sua mensagem foi enviada em breve responderemos');
+        return redirect()->back()->with('alert', 'Sua mensagem foi enviada em breve responderemos');
     }
 }
