@@ -103,22 +103,6 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3 row">
-                                <label for="attachment"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Anexo') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="attachment" type="file"
-                                        class="form-control @error('attachment') is-invalid @enderror" name="attachment">
-
-                                    @error('attachment')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
                             <div class="mb-0 row">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary w-100">
