@@ -38,7 +38,7 @@ class SupportEmail extends Mailable
                      ->with('data', $this->data);
 
         if ($this->attachmentPath) {
-            $mail->attach(storage_path('app/' . $this->attachmentPath));
+            $mail->attach($this->attachmentPath);
         }
 
         return $mail;
